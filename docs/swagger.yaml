@@ -1,0 +1,142 @@
+basePath: /v1
+definitions:
+  entity.OHLC:
+    properties:
+      close:
+        example: 42146.06
+        type: number
+      high:
+        example: 42148.32
+        type: number
+      id:
+        example: 1
+        type: integer
+      low:
+        example: 42120.82
+        type: number
+      open:
+        example: 42123.29
+        type: number
+      symbol:
+        example: BTCUSDT
+        type: string
+      unix:
+        example: 1644719700000
+        type: integer
+    type: object
+  entity.OHLCSaveResponse:
+    properties:
+      status:
+        type: string
+    type: object
+  entity.OHLCSearchResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/entity.OHLC'
+        type: array
+      failedRecords:
+        type: integer
+      limit:
+        type: integer
+      message:
+        type: string
+      offset:
+        type: integer
+      status:
+        type: string
+      total:
+        type: integer
+    type: object
+  v1.response:
+    properties:
+      error:
+        example: message
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: Use for import/export OHLC data.
+  title: OHLC Handler
+  version: "1.0"
+paths:
+  /ohlc/data:
+    get:
+      consumes:
+      - application/json
+      description: Show OHLC data matching the given criteria
+      operationId: get_ohlc
+      parameters:
+      - description: "1644719700000"
+        in: query
+        name: unix
+        type: integer
+      - description: BTCUSDT
+        in: query
+        name: symbol
+        type: string
+      - description: "42123.29000000"
+        in: query
+        name: open
+        type: number
+      - description: "42148.32000000"
+        in: query
+        name: high
+        type: number
+      - description: "42120.82000000"
+        in: query
+        name: low
+        type: number
+      - description: "42146.06000000"
+        in: query
+        name: close
+        type: number
+      - description: "1"
+        in: query
+        name: page
+        type: integer
+      - description: "20"
+        in: query
+        name: itemsPerPage
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.OHLCSearchResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.response'
+      summary: Search OHLC data
+      tags:
+      - ohlc
+    post:
+      consumes:
+      - application/json
+      description: Upload OHLC data to database
+      operationId: post_ohlc
+      parameters:
+      - description: csv file
+        in: formData
+        name: csv
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.OHLCSaveResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/v1.response'
+      summary: Upload OHLC data
+      tags:
+      - ohlc
+swagger: "2.0"

@@ -1,0 +1,22 @@
+app:
+  name: 'go-clean-template'
+  version: '1.0.0'
+
+http:
+  port: '8080'
+  host: '0.0.0.0'
+  read_timeout: 300
+  write_timeout: 300
+  shutdown_timeout: 60
+  process_timeout: 60
+
+logger:
+  log_level: 'info'
+  rollbar_env: 'go-clean-template'
+
+mysql:
+  max_open_conns: 20
+  max_idle_conns: 20
+  conn_max_lifetime: 60
+  conn_ping_timeout: 60
+  write_threshold: 10900
