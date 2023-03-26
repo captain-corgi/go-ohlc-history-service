@@ -1,6 +1,6 @@
 package cache
 
-var InMemory *InMemoryDBImpl
+var InMemory InMemoryDB
 
 type (
 	InMemoryDB interface {

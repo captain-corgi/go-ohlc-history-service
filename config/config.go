@@ -9,10 +9,10 @@ import (
 type (
 	// Config -.
 	Config struct {
-		App   `yaml:"app"`
-		HTTP  `yaml:"http"`
-		Log   `yaml:"logger"`
 		MySQL `yaml:"mysql"`
+		App   `yaml:"app"`
+		Log   `yaml:"logger"`
+		HTTP  `yaml:"http"`
 	}
 
 	// App -.
@@ -44,15 +44,15 @@ type (
 
 	// MySQL -.
 	MySQL struct {
+		URL             string `env-required:"true"                           env:"MYSQL_URL"`
+		USER            string `env-required:"true"                           env:"MYSQL_USER"`
+		PASS            string `env-required:"true"                           env:"MYSQL_PASS"`
+		SCHEMA          string `env-required:"true"                           env:"MYSQL_SCHEMA"`
 		MaxOpenConns    int    `env-required:"true" yaml:"max_open_conns"     env:"MYSQL_MAX_OPEN_CONNS"`
 		MaxIdleConns    int    `env-required:"true" yaml:"max_idle_conns"     env:"MYSQL_MAX_IDLE_CONNS"`
 		ConnMaxLifetime int    `env-required:"true" yaml:"conn_max_lifetime"  env:"MYSQL_CONN_MAX_LIFETIME"`
 		ConnPingTimeout int    `env-required:"true" yaml:"conn_ping_timeout"  env:"MYSQL_CONN_PING_TIMEOUT"`
 		WriteThreshold  int    `env-required:"true" yaml:"write_threshold"    env:"MYSQL_WRITE_THRESHOLD"`
-		URL             string `env-required:"true"                           env:"MYSQL_URL"`
-		USER            string `env-required:"true"                           env:"MYSQL_USER"`
-		PASS            string `env-required:"true"                           env:"MYSQL_PASS"`
-		SCHEMA          string `env-required:"true"                           env:"MYSQL_SCHEMA"`
 	}
 )
 

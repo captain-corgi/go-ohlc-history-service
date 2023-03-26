@@ -10,8 +10,8 @@ func TestInMemoryDBImpl_Clear(t *testing.T) {
 		cache map[string]interface{}
 	}
 	tests := []struct {
-		name   string
 		fields fields
+		name   string
 	}{
 		{
 			name: "Test InMemoryDBImpl Clear",
@@ -76,10 +76,10 @@ func TestInMemoryDBImpl_Get(t *testing.T) {
 		key string
 	}
 	tests := []struct {
-		name   string
-		fields fields
-		args   args
 		want   interface{}
+		fields fields
+		name   string
+		args   args
 		want1  bool
 	}{
 		{
@@ -132,13 +132,13 @@ func TestInMemoryDBImpl_Set(t *testing.T) {
 		cache map[string]interface{}
 	}
 	type args struct {
-		key   string
 		value interface{}
+		key   string
 	}
 	tests := []struct {
-		name   string
-		fields fields
 		args   args
+		fields fields
+		name   string
 	}{
 		{
 			name: "Test InMemoryDBImpl Set",
@@ -166,8 +166,8 @@ func TestInMemoryDBImpl_Set(t *testing.T) {
 
 func TestNewInMemoryDB(t *testing.T) {
 	tests := []struct {
-		name string
 		want *InMemoryDBImpl
+		name string
 	}{
 		{
 			name: "NewInMemoryDB",

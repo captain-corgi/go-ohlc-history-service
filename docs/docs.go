@@ -228,9 +228,9 @@ type swaggerInfo struct {
 	Version     string
 	Host        string
 	BasePath    string
-	Schemes     []string
 	Title       string
 	Description string
+	Schemes     []string
 }
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it

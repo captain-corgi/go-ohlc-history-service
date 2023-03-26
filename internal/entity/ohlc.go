@@ -3,11 +3,12 @@ package entity
 import "strconv"
 
 // OHLC represent transaction info
+//
 //	UNIX,SYMBOL,OPEN,HIGH,LOW,CLOSE
 type OHLC struct {
+	Symbol string  `json:"symbol"      csv:"SYMBOL"  example:"BTCUSDT"`
 	Id     int64   `json:"-"          csv:"-"       example:"1"`
 	Unix   int64   `json:"unix"        csv:"UNIX"    example:"1644719700000"`
-	Symbol string  `json:"symbol"      csv:"SYMBOL"  example:"BTCUSDT"`
 	Open   float64 `json:"open"        csv:"OPEN"    example:"42123.29000000"`
 	High   float64 `json:"high"        csv:"HIGH"    example:"42148.32000000"`
 	Low    float64 `json:"low"         csv:"LOW"     example:"42120.82000000"`

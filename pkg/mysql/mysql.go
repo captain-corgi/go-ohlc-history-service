@@ -13,11 +13,10 @@ import (
 
 // MySQL -.
 type MySQL struct {
+	DB           *sql.DB
 	maxPoolSize  int
 	connAttempts int
 	connTimeout  time.Duration
-
-	DB *sql.DB
 }
 
 // New -.

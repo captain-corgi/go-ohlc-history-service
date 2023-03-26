@@ -62,17 +62,17 @@ func (searchModel OHLCSearchRequest) BuildLimitOffset() (valueArgs []interface{}
 // OHLCSearchResponse is the response for search OHLC data.
 type OHLCSearchResponse struct {
 	LatestProcess ProcessingStatus `json:"latestProcess"`
+	Data          []OHLC           `json:"data"`
 	Offset        int              `json:"offset"`
 	Limit         int              `json:"limit"`
 	Total         int64            `json:"total"`
-	Data          []OHLC           `json:"data"`
 }
 
 type ProcessingStatus struct {
 	Status          ProcessStatus `json:"status"`
 	Message         string        `json:"message"`
-	FailedRecords   int64         `json:"failedRecords"`
 	LastProcessTime string        `json:"lastProcessTime"`
+	FailedRecords   int64         `json:"failedRecords"`
 }
 
 type OHLCSaveResponse struct {

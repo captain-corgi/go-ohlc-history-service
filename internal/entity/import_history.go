@@ -1,11 +1,11 @@
 package entity
 
 type ImportStatus struct {
-	Id        int64  `json:"id"`
 	OHLCId    string `json:"OHLCId"`
 	Status    string `json:"status"`
-	Count     int64  `json:"count"`
 	Reason    string `json:"reason"`
+	Id        int64  `json:"id"`
+	Count     int64  `json:"count"`
 	CreatedAt int64  `json:"createdAt"`
 	UpdatedAt int64  `json:"updatedAt"`
 }
