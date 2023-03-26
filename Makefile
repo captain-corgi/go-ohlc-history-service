@@ -70,3 +70,7 @@ migrate-create:  ### create new migration
 migrate-up: ### migration up
 	migrate -path migrations -database '$(MYSQL_URL)?sslmode=disable' up
 .PHONY: migrate-up
+
+optimize-struct:
+	go install golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@latest
+	fieldalignment -fix ./...
