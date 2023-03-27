@@ -17,7 +17,7 @@ import (
 
 const (
 	// Attempts connection
-	host       = "app:8080"
+	host       = "127.0.0.1:8080"
 	healthPath = "http://" + host + "/health"
 	attempts   = 20
 
@@ -58,7 +58,7 @@ func healthCheck(attempts int) error {
 
 // HTTP POST: /ohlc/data.
 func TestHTTPPostData(t *testing.T) {
-	url := "http://localhost:8080/v1/ohlc/data"
+	url := "http://" + host + "/v1/ohlc/data"
 	method := "POST"
 
 	payload := &bytes.Buffer{}

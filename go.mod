@@ -1,6 +1,6 @@
 module github.com/captain-corgi/go-ohlc-history-service
 
-go 1.18
+go 1.20
 
 require (
 	github.com/Eun/go-hit v0.5.23

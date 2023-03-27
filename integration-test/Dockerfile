@@ -1,12 +1,12 @@
 # Step 1: Modules caching
-FROM golang:1.18.2-alpine3.14 as modules
+FROM golang:1.20-alpine3.17 as modules
 COPY go.mod go.sum /modules/
 COPY go.mod go.sum integration-test/sample.csv /modules/
 WORKDIR /modules
 RUN go mod download
 
 # Step 2: Tests
-FROM golang:1.18.2-alpine3.14
+FROM golang:1.20-alpine3.17
 COPY --from=modules /go/pkg /go/pkg
 COPY . /app
 WORKDIR /app

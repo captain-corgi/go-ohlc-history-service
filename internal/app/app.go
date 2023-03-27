@@ -28,7 +28,7 @@ func Run(cfg *config.Config) {
 	// Repository
 	mySQL, err := mysql.New(cfg.MySQL)
 	if err != nil {
-		l.Fatal(fmt.Errorf("app - Run - postgres.New: %w", err))
+		l.Fatal(fmt.Errorf("app - Run - mysql.New: %w", err))
 	}
 	defer mySQL.Close()
 

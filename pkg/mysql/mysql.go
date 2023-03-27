@@ -23,11 +23,12 @@ type MySQL struct {
 func New(config config.MySQL, opts ...Option) (*MySQL, error) {
 	// Capture connection properties.
 	cfg := mysql.Config{
-		User:   config.USER,
-		Passwd: config.PASS,
-		Net:    "tcp",
-		Addr:   config.URL,
-		DBName: config.SCHEMA,
+		User:                 config.USER,
+		Passwd:               config.PASS,
+		Net:                  "tcp",
+		Addr:                 config.URL,
+		DBName:               config.SCHEMA,
+		AllowNativePasswords: true,
 	}
 
 	// Get a database handle.

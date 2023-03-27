@@ -9,10 +9,10 @@ import (
 type (
 	// Config -.
 	Config struct {
-		MySQL `yaml:"mysql"`
 		App   `yaml:"app"`
 		Log   `yaml:"logger"`
 		HTTP  `yaml:"http"`
+		MySQL `yaml:"mysql"`
 	}
 
 	// App -.
